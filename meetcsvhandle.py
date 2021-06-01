@@ -5,7 +5,7 @@ class MeetCSVHandler:
     __student_dict = {}
     def __init__(self,file_path):
         self.__file_path = file_path
-        with open(self.__file_path,'r') as source:
+        with open(self.__file_path,'r',encoding="utf8", errors='ignore') as source:
             reader = csv.reader(source,delimiter=",")
             for row in reader:
                 self.__sheet.append(row)
