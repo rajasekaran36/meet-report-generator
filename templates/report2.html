@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/table.css') }}"/>
+</head>
+<body>
+    <p>Report</p>
+    
+    <table class="styled-table">
+        <tr>
+            {%for heading in headings%}
+            <th>{{heading}}</th>
+            {%endfor%}
+        </tr>
+
+        {%for report in reports%}
+            {% if report['Duration']==-1 %}
+                <tr style="color: red;">
+                    {%for key in report%}
+                    <td>{{report[key]}}</td>
+                    {%endfor%}
+                </tr>
+            {% else %}
+                <tr style="color: green;">
+                    {%for key in report%}
+                    <td>{{report[key]}}</td>
+                    {%endfor%}
+                </tr>
+            {% endif %}
+        {%endfor%}
+    </table>
+</body>
+</html>

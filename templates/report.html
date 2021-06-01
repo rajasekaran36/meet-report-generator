@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/table.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/head.css') }}" />
+</head>
+
+<body>
+
+    <table class="head-table">
+        <thead>
+            <tr>
+                {% for heading in session_headings %}
+                <th>{{heading}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for key in session_details %}
+                <td>{{session_details[key]}}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                {%for heading in headings%}
+                <th>{{heading}}</th>
+                {%endfor%}
+            </tr>
+        </thead>
+        {%for report in reports%}
+        <tbody>
+            {% if report['Status']=="AB" %}
+            <tr class="absent">
+            {% else %}
+            <tr class="present">
+            {% endif %}
+                {% for key in report %}
+                <td>{{report[key]}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
