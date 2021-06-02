@@ -78,3 +78,24 @@ class MeetAnalizer:
                     report["Status"] = "P"
         return self.__mapping_dict_list
 
+
+    def get_new_names_dict_list(self):
+        new_records = []
+        allnames = []
+        for rec in self.__mapping_dict_list:
+            for name in rec['gmeet_names']:
+                allnames.append(name)
+        
+        #print(allnames)
+        for meet_record in self.__meet_dict['meet_records']:
+            #print(meet_record)
+            if(meet_record["Names"] not in allnames):
+                #print(meet_record["Names"])
+                new_records.append(meet_record)
+
+        #print(new_records)
+        return new_records
+
+
+
+

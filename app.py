@@ -38,7 +38,7 @@ def handle():
     key_list = [key.upper() for key in key_list]    
     session_list = [key.upper() for key in meet_report.get_session_details().keys()]
     print(meet_report.get_session_details())
-    return render_template("report.html",headings=key_list, reports=meet_report.get_report_dict_list(),session_headings=session_list,session_details=meet_report.get_session_details())
+    return render_template("report.html",headings=key_list, reports=meet_report.get_report_dict_list(),session_headings=session_list,session_details=meet_report.get_session_details(),new_rec=meet_report.get_new_names_dict_list())
 
 @app.route('/file')
 def file():
@@ -51,8 +51,9 @@ def reporthtml():
     key_list = list(meet_report.get_report_dict_list()[0].keys())
     key_list = [key.upper() for key in key_list]    
     session_list = [key.upper() for key in meet_report.get_session_details().keys()]
-    print(meet_report.get_session_details())
-    return render_template("report.html",headings=key_list, reports=meet_report.get_report_dict_list(),session_headings=session_list,session_details=meet_report.get_session_details())
+    #print(meet_report.get_session_details())
+    print(meet_report.get_new_names_dict_list())
+    return render_template("report.html",headings=key_list, reports=meet_report.get_report_dict_list(),session_headings=session_list,session_details=meet_report.get_session_details(),new_rec=meet_report.get_new_names_dict_list())
 
 
 if __name__ == "__main__":

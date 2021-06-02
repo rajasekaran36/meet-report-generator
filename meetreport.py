@@ -23,13 +23,15 @@ class MeetReport:
     def get_absent_rec(self):
         absent_dict = []
         for rec in self.__report_dict_list:
-            if(rec["Status"] == "A"):
+            if(rec["Status"] == "AB"):
                 absent_dict.append(rec)
         return absent_dict
         
     def get_report_dict_list(self):
         return self.__report_dict_list
-
+    
+    def get_new_names_dict_list(self):
+        return self.__meet_analizer.get_new_names_dict_list()
     
     def toCSVFile(self,filename):
         with open("reports/"+filename+".csv",'w') as des:

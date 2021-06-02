@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+    <h2>Class Details</h2>
     <table class="head-table">
         <thead>
             <tr>
@@ -29,7 +29,8 @@
         </tbody>
     </table>
     <br>
-    <br>
+    <h2>Attendance Details</h2>
+    
     <table class="styled-table">
         <thead>
             <tr>
@@ -52,6 +53,34 @@
             {% endfor %}
         </tbody>
     </table>
+    <br>
+    <h2>New Records</h2>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                {%for heading in new_rec[0].keys()%}
+                <th>{{heading}}</th>
+                {%endfor%}
+            </tr>
+        </thead>
+        <tbody>
+            {% for rec in new_rec %}
+            <tr>
+                {% for key in rec %}
+                <th>{{rec[key]}}</th>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+        <!-- <tbody>
+            <tr>
+                {% for key in session_details %}
+                <td>{{session_details[key]}}</td>
+                {% endfor %}
+            </tr>
+        </tbody> -->
+    </table>
+
 </body>
 
 </html>

@@ -44,7 +44,7 @@ class MeetCSVHandler:
     def get_student_details_dict_list(self):
         list_details = []
         for row in self.get_stuent_details():
-            details = {}.fromkeys(self.__sheet[3])
+            details = {}.fromkeys(self.__sheet[3][:8])
             keys = list(details.keys())
             try:
                 for i in range(len(keys)):
