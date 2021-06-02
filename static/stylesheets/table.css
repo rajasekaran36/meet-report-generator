@@ -39,3 +39,8 @@
     font-weight: bold;
     color: crimson;
 }
+
+.styled-table tbody tr.comment {
+    font-weight: bold;
+    color:orange;
+}

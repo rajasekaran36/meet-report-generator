@@ -46,6 +46,9 @@
             {% else %}
             <tr class="present">
             {% endif %}
+            {% if report['Comment']!=None %}
+            <tr class="comment">
+            {% endif %}
                 {% for key in report %}
                 <td>{{report[key]}}</td>
                 {% endfor %}

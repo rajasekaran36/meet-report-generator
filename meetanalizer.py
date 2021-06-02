@@ -1,3 +1,4 @@
+import re
 from meetcsvhandle import MeetCSVHandler
 from meetmapping import MeetMapping
 import datetime
@@ -68,6 +69,7 @@ class MeetAnalizer:
             report["Last Seen"] = None
             report["Duration"] = None
             report["Status"] = "AB"
+            report["Comment"] = None
             record = self.get_record_by_gmeet_name(report['gmeet_names'][0])
             if(record!=None):
                 report["Joined as"] = record["Names"]
@@ -76,6 +78,8 @@ class MeetAnalizer:
                 report["Duration"] = record["Duration"]
                 if(report["Duration"]>=min_duration):
                     report["Status"] = "P"
+                    if(report["Duration"]<=20):
+                        report["Comment"] = "Left Early"
         return self.__mapping_dict_list
 
 
